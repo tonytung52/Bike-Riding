@@ -1,0 +1,178 @@
+# Bike-Riding
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淡江大橋跨河單車懶人包 - 專為車友設計的騎行指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1596402184320-417d7178b2cd?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center 60%;
+        }
+
+        .info-card { transition: all 0.3s ease; display: none; }
+        .info-card.active { display: block; animation: fadeIn 0.5s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-toggle.active {
+            background-color: #3b82f6;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="hero-section h-[70vh] flex items-center justify-center text-white relative">
+        <div class="text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">淡江大橋</h1>
+            <p class="text-xl md:text-2xl font-light tracking-widest opacity-90 drop-shadow-md">
+                跨越河口夕陽，開啟淡水八里單車新紀元
+            </p>
+            <div class="mt-10 animate-bounce">
+                <i class="fas fa-chevron-down text-3xl"></i>
+            </div>
+        </div>
+        <div class="absolute bottom-4 right-4 text-xs opacity-50">Image: Tamsui Estuary View</div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-16">
+        
+        <section id="tamsui" class="mb-24">
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-12">
+                <div class="flex-1 order-2 md:order-1">
+                    <span class="text-blue-600 font-bold tracking-widest text-sm">NORTH BANK</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6 border-l-8 border-blue-600 pl-4">淡水端：金色水岸</h2>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        淡水端出口銜接<b>金色水岸自行車道</b>。由淡江大橋引道下橋後，往北可直通沙崙、漁人碼頭及充滿異國情調的海岸線；往南則通往熱鬧的人文老街。
+                    </p>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-blue-800 mb-2"><i class="fas fa-route mr-2"></i>推薦路線</h4>
+                        <p class="text-sm text-blue-700">淡江大橋引道 → 沙崙文創園區 → 漁人碼頭情人橋 → 滬尾藝文步道。</p>
+                    </div>
+                </div>
+                <div class="flex-1 order-1 md:order-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tamsui_Lover%27s_Bridge_20150614.jpg/800px-Tamsui_Lover%27s_Bridge_20150614.jpg" 
+                         alt="Tamsui End" class="rounded-2xl shadow-2xl hover:scale-[1.02] transition duration-500">
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+                <div class="flex border-b text-center cursor-pointer">
+                    <div onclick="showInfo('tamsui', 'spot', this)" class="btn-toggle flex-1 py-4 font-bold active"><i class="fas fa-map-marker-alt mr-2"></i>景點</div>
+                    <div onclick="showInfo('tamsui', 'food', this)" class="btn-toggle flex-1 py-4 font-bold"><i class="fas fa-utensils mr-2"></i>美食</div>
+                    <div onclick="showInfo('tamsui', 'park', this)" class="btn-toggle flex-1 py-4 font-bold"><i class="fas fa-car mr-2"></i>停車</div>
+                </div>
+                <div class="p-8">
+                    <div id="tamsui-spot" class="info-card active">
+                        <h3 class="text-xl font-bold mb-2 text-blue-600">熱門景點</h3>
+                        <p class="text-slate-600">漁人碼頭看日落、海關碼頭歷史巡禮、沙崙海水浴場沙灘騎行。</p>
+                    </div>
+                    <div id="tamsui-food" class="info-card">
+                        <h3 class="text-xl font-bold mb-2 text-blue-600">在地美食</h3>
+                        <p class="text-slate-600">沙崙特色景觀餐廳、老街阿給、魚酥，以及漁人碼頭內的高級咖啡廳補給站。</p>
+                    </div>
+                    <div id="tamsui-park" class="info-card">
+                        <h3 class="text-xl font-bold mb-2 text-blue-600">開車前往 (4+2)</h3>
+                        <p class="text-slate-600">推薦停放在「漁人碼頭地下停車場」或「沙崙文創園區旁停車場」，位置多且距離引道最近。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bali" class="mb-24">
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-12">
+                <div class="flex-1">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" 
+                         alt="Bali End" class="rounded-2xl shadow-2xl hover:scale-[1.02] transition duration-500">
+                </div>
+                <div class="flex-1">
+                    <span class="text-emerald-600 font-bold tracking-widest text-sm">SOUTH BANK</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6 border-l-8 border-emerald-600 pl-4">八里端：左岸綠廊</h2>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        下橋後即進入<b>八里左岸自行車道</b>。這裡相對於淡水端更為開闊平坦，擁有極佳的河濱生態與大片的綠地公園，是公路車與親子的天堂。
+                    </p>
+                    <div class="bg-emerald-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-emerald-800 mb-2"><i class="fas fa-route mr-2"></i>推薦路線</h4>
+                        <p class="text-sm text-emerald-700">淡江大橋引道 → 十三行文化公園 → 八里左岸公園 → 渡船頭老街。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+                <div class="flex border-b text-center cursor-pointer">
+                    <div onclick="showInfo('bali', 'spot', this)" class="btn-toggle flex-1 py-4 font-bold active text-emerald-600"><i class="fas fa-map-marker-alt mr-2"></i>景點</div>
+                    <div onclick="showInfo('bali', 'food', this)" class="btn-toggle flex-1 py-4 font-bold text-emerald-600"><i class="fas fa-utensils mr-2"></i>美食</div>
+                    <div onclick="showInfo('bali', 'park', this)" class="btn-toggle flex-1 py-4 font-bold text-emerald-600"><i class="fas fa-car mr-2"></i>停車</div>
+                </div>
+                <div class="p-8">
+                    <div id="bali-spot" class="info-card active">
+                        <h3 class="text-xl font-bold mb-2 text-emerald-600">熱門景點</h3>
+                        <p class="text-slate-600">十三行博物館、挖子尾生態保留區、八里婚紗廣場拍照點、文化公園露營區。</p>
+                    </div>
+                    <div id="bali-food" class="info-card">
+                        <h3 class="text-xl font-bold mb-2 text-emerald-600">在地美食</h3>
+                        <p class="text-slate-600">渡船頭雙胞胎、現炸孔雀蛤、左岸景觀餐廳區，適合大群車友聚會休息。</p>
+                    </div>
+                    <div id="bali-park" class="info-card">
+                        <h3 class="text-xl font-bold mb-2 text-emerald-600">開車前往 (4+2)</h3>
+                        <p class="text-slate-600">強烈推薦停放「八里文化公園停車場」，空地極大，且直接銜接自行車道中繼點。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-white py-12 text-center">
+        <p class="opacity-70 mb-2 text-sm">淡江大橋預計通車後，單車道將成為全台最美跨海路線之一</p>
+        <p class="text-xs opacity-50">&copy; 2026 車友跨河指南 - 由 GitHub Pages 提供服務</p>
+    </footer>
+
+    <script>
+        function showInfo(side, type, btn) {
+            // 隱藏該側所有卡片
+            const cards = document.querySelectorAll(`#${side} .info-card`);
+            cards.forEach(card => card.classList.remove('active'));
+
+            // 顯示點擊的卡片
+            document.getElementById(`${side}-${type}`).classList.add('active');
+
+            // 切換按鈕樣式
+            const buttons = btn.parentElement.querySelectorAll('.btn-toggle');
+            buttons.forEach(b => b.classList.remove('active', 'bg-blue-800', 'bg-emerald-800', 'text-white'));
+            
+            btn.classList.add('active');
+            if(side === 'tamsui') {
+                btn.style.backgroundColor = '#2563eb';
+                btn.style.color = 'white';
+            } else {
+                btn.style.backgroundColor = '#059669';
+                btn.style.color = 'white';
+            }
+        }
+
+        // 初始化樣式
+        document.addEventListener("DOMContentLoaded", () => {
+            const initialTamsuiBtn = document.querySelector('#tamsui .btn-toggle.active');
+            const initialBaliBtn = document.querySelector('#bali .btn-toggle.active');
+            initialTamsuiBtn.style.backgroundColor = '#2563eb';
+            initialTamsuiBtn.style.color = 'white';
+            initialBaliBtn.style.backgroundColor = '#059669';
+            initialBaliBtn.style.color = 'white';
+        });
+    </script>
+</body>
+</html>
